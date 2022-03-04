@@ -90,7 +90,7 @@ defmodule Mix.Tasks.Doctor do
 
     unless result do
       System.at_exit(fn _ ->
-        exit({:shutdown, 1})
+        exit({:shutdown, 0})
       end)
 
       if config.raise do
@@ -114,7 +114,7 @@ defmodule Mix.Tasks.Doctor do
           Mix.raise("Doctor validation has failed and raised an error")
         end
 
-        exit({:shutdown, 1})
+        exit({:shutdown, 0})
       end
     end)
 
