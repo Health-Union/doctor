@@ -89,9 +89,7 @@ defmodule Mix.Tasks.Doctor do
       |> CLI.process_module_report_list(config)
 
     unless result do
-      System.at_exit(fn _ ->
-        exit({:shutdown, 0})
-      end)
+      IO.puts("\nSystem exit call used to be here.\n")
 
       if config.raise do
         Mix.raise("Doctor validation has failed and raised an error")
